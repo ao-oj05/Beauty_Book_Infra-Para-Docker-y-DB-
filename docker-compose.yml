@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: beauty_book_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: beauty_user
+      POSTGRES_PASSWORD: beauty_password
+      POSTGRES_DB: beauty_book_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
